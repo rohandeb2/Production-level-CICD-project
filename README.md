@@ -31,6 +31,20 @@ This pipeline implements a complete CI/CD workflow with:
 - **Monitoring**: Prometheus + Grafana + Blackbox Exporter
 - **Notifications**: Email alerts via Gmail
 
+## Application
+
+<div align="center">
+  <img src="images/2.png" >
+</div>
+
+## Pipeline
+
+<div align="center">
+  <img src="images/3.png" >
+</div>
+
+
+
 ## 📦 Prerequisites
 
 Before starting, generate the following credentials:
