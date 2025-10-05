@@ -99,7 +99,7 @@ pipeline {
                     credentialsId: 'k8s-cred',
                     namespace: 'webapps',
                     restrictKubeConfigAccess: false,
-                    serverUrl: 'https://DE2E541B087E6D31F32168E4FD7D1282.gr7.us-east-1.eks.amazonaws.com'
+                    serverUrl: '<eks api access point url>'
                 ) {
                     sh "kubectl apply -f k8s/deployment-service.yml"
                 }
@@ -115,7 +115,8 @@ pipeline {
                     credentialsId: 'k8s-cred',
                     namespace: 'webapps',
                     restrictKubeConfigAccess: false,
-                    serverUrl: 'https://DE2E541B087E6D31F32168E4FD7D1282.gr7.us-east-1.eks.amazonaws.com'
+                    serverUrl: '<eks api access point url>'
+                    #serverUrl: 'https://DE2E541B087E6D31F32168E4FD7D1282.gr7.us-east-1.eks.amazonaws.com'
                 ) {
                     sh "kubectl get pods -n webapps"
                     sh "kubectl get svc -n webapps"
@@ -128,8 +129,8 @@ post {
         success {
             script {
                 emailext (
-                    from: 'ruhondeb8@gmail.com',
-                    to: 'ayushmanngupta38@gmail.com',
+                    from: '<your-email-address>',
+                    to: '<your-email-address>',
                     subject: 'Build Success: Demo CICD Pipeline',
                     body: 'Build success for demo CICD pipeline'
                 )
@@ -139,8 +140,8 @@ post {
         failure {
             script {
                 emailext (
-                    from: 'ruhondeb8@gmail.com',
-                    to: 'ayushmanngupta38@gmail.com',
+                    from: '<your-email-address>',
+                    to: '<your-email-address>',
                     subject: 'Build Failure: Demo CICD Pipeline',
                     body: 'Build failure for demo CICD pipeline'
                 )
