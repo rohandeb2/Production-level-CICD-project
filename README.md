@@ -16,6 +16,10 @@ A comprehensive end-to-end DevOps pipeline featuring Jenkins, SonarQube, Nexus, 
 
 ## 🏗️ Architecture Overview
 
+<div align="center">
+  <img src="images/1.1.png" >
+</div>
+
 This pipeline implements a complete CI/CD workflow with:
 
 - **CI/CD**: Jenkins for automation
