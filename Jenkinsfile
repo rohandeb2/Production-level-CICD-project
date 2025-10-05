@@ -99,7 +99,7 @@ pipeline {
                     credentialsId: 'k8s-cred',
                     namespace: 'webapps',
                     restrictKubeConfigAccess: false,
-                    serverUrl: 'https://3675E22C728DF44B83B380CC810E54C8.gr7.us-east-1.eks.amazonaws.com'
+                    serverUrl: 'https://DE2E541B087E6D31F32168E4FD7D1282.gr7.us-east-1.eks.amazonaws.com'
                 ) {
                     sh "kubectl apply -f k8s/deployment-service.yml"
                 }
@@ -115,7 +115,7 @@ pipeline {
                     credentialsId: 'k8s-cred',
                     namespace: 'webapps',
                     restrictKubeConfigAccess: false,
-                    serverUrl: 'https://3675E22C728DF44B83B380CC810E54C8.gr7.us-east-1.eks.amazonaws.com'
+                    serverUrl: 'https://DE2E541B087E6D31F32168E4FD7D1282.gr7.us-east-1.eks.amazonaws.com'
                 ) {
                     sh "kubectl get pods -n webapps"
                     sh "kubectl get svc -n webapps"
@@ -124,22 +124,27 @@ pipeline {
         }
     }
 
-post{
-     success{
-         script{
-             emailext from: 'rohandeb8@gmail.com',
-             to: 'ayushmanngupta38@gmail.com',
-             body: 'Build success for demo CICD pipeline',
-             subject: 'Build success for demo CICD pipeline'    
-         }
-     }
-     failure{
-         script{
-             emailext from: 'rohandeb8@gmail.com',
-             to: 'ayushmanngupta38@gmail.com',
-             body: 'Build failure for demo CICD pipeline',
-             subject: 'Build failure for demo CICD pipeline'    
-         }
-     }
- }   
+post {
+        success {
+            script {
+                emailext (
+                    from: 'ruhondeb8@gmail.com',
+                    to: 'ayushmanngupta38@gmail.com',
+                    subject: 'Build Success: Demo CICD Pipeline',
+                    body: 'Build success for demo CICD pipeline'
+                )
+            }
+        }
+
+        failure {
+            script {
+                emailext (
+                    from: 'ruhondeb8@gmail.com',
+                    to: 'ayushmanngupta38@gmail.com',
+                    subject: 'Build Failure: Demo CICD Pipeline',
+                    body: 'Build failure for demo CICD pipeline'
+                )
+            }
+        }
+    }
 }
