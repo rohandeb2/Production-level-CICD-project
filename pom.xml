@@ -102,11 +102,11 @@
 	<distributionManagement>
         <repository>
             <id>maven-releases</id>
-            <url>http://localhost:8200/repository/maven-releases/</url>
+            <url>http://nexus-server:8200/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>maven-snapshots</id>
-	    <url>http://localhost:8200/repository/maven-snapshots/</url>
+	    <url>http://nexus-server:8200/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
